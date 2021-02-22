@@ -1,23 +1,25 @@
-# ![](https://ga-dash.s3.amazonaws.com/production/assets/logo-9f88ae6c9c3871690e33280fcf557f33.png) SOFTWARE ENGINEERING IMMERSIVE
-
 # Express Routing
 
-### Learning Objectives
+![Route66](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pedestrian.tv%2Fcontent%2Fuploads%2F2018%2F09%2Froute66.gif&f=1&nofb=1)
 
-- Build Api Endpoints
+## Overview
+In this lesson, we'll learn about *routing* in Express and how to build API endpoints.  We'll also take a look at queries and parameters and discuss HTTP methods and their use.
+
+## Objectives
+- Build API Endpoints
 - Learn about query and parameters
-- Define whitch http methods perform what action
+- Define which HTTP methods perform which action
 
 ## Getting Started
+- `Fork` And `Clone` this repository
+- `cd` into the `Express-Routing` folder
+- `npm i` and install our dependencies
+- Have [Insomnia](https://insomnia.rest/download/core/?) ready to go
 
-- Fork And Clone this repository
-- `cd` into your `Express-Routing` folder
-- `npm i` or `npm install` to install our dependencies.
-- `npm dev` to check your installation completed successfully.
-- Have either [Insomnia](https://insomnia.rest/download/core/?) or [Postman](https://www.postman.com/downloads/) ready to go!
-  A basic Express app has been provided for you.
+## Express Boilerplate
 
 ```js
+const { request, response } = require('express')
 const express = require('express')
 const PORT = process.env.PORT || 3001
 
@@ -26,16 +28,17 @@ const app = express()
 
 // End Your Code Here
 app.listen(PORT, () => console.log(`Server Listening on port: ${PORT}`))
-T, () => console.log(`Server Listening on port: ${PORT}`))
 ```
 
-#### Break Down
+![Breakdance](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2F3oEjHZ10CNMhK6bpgQ%2Fgiphy.gif&f=1&nofb=1)
+
+### Let's Break It Down
 
 We are importing the `express` package by using javascripts `require` method. The `PORT` variable will be a port number stored in our environment `or` 3001. Storing the express library in a variable called `app`. Using the listen method to have our server listen on the specified port.
 
 ## Building Our First Route
 
-If we `console.log(app)`, we'll see an object with values that are functions from Express . If you look closely you'll notice a couple of keys that may look familiar.
+If we `console.log(app)`, we'll see an object with values that are functions from Express. If you look closely you'll notice a couple of keys that may look familiar.
 
 ```sh
 get: [Function (anonymous)],
@@ -50,11 +53,8 @@ Express provides functions that can handle `http` requests out of the box. We'll
 
 Each of the functions shown above require a string for the first argument and a function for the second. The first argument is a string representing the `url` or `endpoint` that we want to make a request to. The second argument, which is a function provides a way to handle some sort of action in each route. Let's put them to use.
 
-#### Defining a `GET` Route.
-
----
-
-To define a route, we are going to leverage our `app` variable to gain access to the functions inside of the Express object.
+### Defining a `GET` Route.
+To define a route, we are going to leverage our `app` variable with dot notation to gain access to the functions inside of the Express object.
 
 Add the following code to your `app.js`:
 
@@ -65,11 +65,11 @@ app.get('/hello', (request, response) => {
 })
 ```
 
-Congrats, you've just written your first Express Route!
+Congrats, you've just written your first Express Route! Yeehaw!
 
-Now let's break this down:
+![Yeehaw](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2F68.media.tumblr.com%2F03377ee089ad052b5edc0309f9807d15%2Ftumblr_ng2r2pLWT91s58xblo2_500.gif&f=1&nofb=1)
 
-#### Breakdown
+### Let's Break It Down
 
 We are using our `app` variable to access a function called `get`. This function recieves 2 parameters/arguments, a string for an endpoint and a function to handle a request.
 
@@ -84,12 +84,9 @@ In our example above we set the endpoint to `/hello` and provide a function that
 
 The `request` object is provided by express and contains some useful information that we can use to look for specific information, more on that later.
 
-The `response` object has built in methods that allows us to send whoever was making a request to our server some type of information. In our example above we simply send back a string of `Howdy` using the `send()` method.
+The `response` object has built in methods that allow us to send whoever was making a request to our server some type of information. In our example above we simply send back a string of `Howdy` using the `send()` method.
 
-#### Defining a `POST` Route
-
----
-
+### Defining a `POST` Route
 Let's create another route, this time to recieve a `post` request. Remember a `post` request is typically used to send a server some type of information, for example a form or possibly a file.
 
 Add the following code to your app:
@@ -103,7 +100,7 @@ app.post('/hello', (request, response) => {
 
 We've successfully sent a `post` request to our server!
 
-In this example we passed an object to `res.send()`. Express has some built in tools that handle any kind of data that can be sent back as a string and sends it in the correct format. Sending information back in an object is a common practice when building restful api's.
+In this example we passed an object to `res.send()`. Express has some built in tools that handle any kind of data that can be sent back as a string and sends it in the correct format. Sending information back in an object is a common practice when building [RESTful](https://en.m.wikipedia.org/wiki/Representational_state_transfer) API's.
 
 Take note of the endpoint we've used here. It's exactly the same as the `get` request we made earlier. Express allows us to do this because the methods used for that endpoint are different. However, this does not apply if the route methods are the same.
 
@@ -120,10 +117,9 @@ app.get('/hello', (request, response) => {
 
 Express will default to the first one it finds. You'll always get back `howdy`. Keep that in mind when defining your endpoints!
 
+![Spiderman](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia1.tenor.com%2Fimages%2F837072ca19e3c5cebea76e2693f3100d%2Ftenor.gif%3Fitemid%3D11796793&f=1&nofb=1)
+
 ## Dynamic Endpoints
-
----
-
 In Express, we can create dynamic endpoints by using the in built in `request` object.
 
 ### Params
@@ -163,7 +159,9 @@ Query's function in different way from `params` because we dont set any placehol
 
 We start a query with the `?` operator and set a variable that will hold some type of value. If any additional information is needed we use the `&` operator to append extra variables and values.
 
-## Practice
+![Sesame](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fmedia.giphy.com%2Fmedia%2FATt7p8OO4mvvO%2Fgiphy.gif&f=1&nofb=1)
+
+## You Do
 
 - Create a `GET` endpoint `/dogs` and send a string with your favorite dog breed.
 
@@ -174,3 +172,14 @@ We start a query with the `?` operator and set a variable that will hold some ty
 - Create a `PUT` endpoint `/profile/update/:username`, and send back a string that reads: `User profile with the username of {Whatever username you chose} was updated`.
 
 - Create a `DELETE` endpoint `/tacos` with the query parameters of `type` and `tacoId`, and send back an object with `I deleted the {your taco type} with an id of {your taco id}`.
+
+![Snoop](https://media.giphy.com/media/3ohs7YMlUQ6Jk8w0rS/giphy.gif)
+
+## Recap
+We learned about HTTP methods and how to access them in Express to perform different tasks.  We also learned about queries and parameters in URLs.  It's easy to see how we can leverage user input via queries and parameters to perform different tasks with our back-end!
+
+## Resources
+- [Insomnia](https://insomnia.rest/download/core/?)
+- [Request](https://expressjs.com/en/api.html#req)
+- [Response](https://expressjs.com/en/api.html#res)
+- [RESTful](https://en.m.wikipedia.org/wiki/Representational_state_transfer)
