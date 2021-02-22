@@ -19,7 +19,6 @@ In this lesson, we'll learn about *routing* in Express and how to build API endp
 ## Express Boilerplate
 
 ```js
-const { request, response } = require('express')
 const express = require('express')
 const PORT = process.env.PORT || 3001
 
