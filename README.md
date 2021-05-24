@@ -12,7 +12,6 @@ In this lesson, we'll learn about *routing* in Express and how to build API endp
 
 ## Getting Started
 - `Fork` And `Clone` this repository
-- `cd` into the `Express-Routing` folder
 - `npm i` and install our dependencies
 - Have [Insomnia](https://insomnia.rest/download/core/?) ready to go
 
