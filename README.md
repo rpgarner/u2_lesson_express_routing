@@ -98,7 +98,7 @@ app.post('/hello', (request, response) => {
 
 We've successfully sent a `post` request to our server!
 
-In this example we passed an object to `res.send()`. Express has some built in tools that handle any kind of data that can be sent back as a string and sends it in the correct format. Sending information back in an object is a common practice when building [RESTful](https://en.m.wikipedia.org/wiki/Representational_state_transfer) API's.
+In this example we passed an object to `response.send()`. Express has some built in tools that handle any kind of data that can be sent back as a string and sends it in the correct format. Sending information back in an object is a common practice when building [RESTful](https://en.m.wikipedia.org/wiki/Representational_state_transfer) API's.
 
 Take note of the endpoint we've used here. It's exactly the same as the `get` request we made earlier. Express allows us to do this because the methods used for that endpoint are different. However, this does not apply if the route methods are the same.
 
