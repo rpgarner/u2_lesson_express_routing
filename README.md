@@ -1,6 +1,6 @@
 # Express Routing
 
-![Route66](https://external-content.duckduckgo.com/iu/?u=https%3A%2F%2Fwww.pedestrian.tv%2Fcontent%2Fuploads%2F2018%2F09%2Froute66.gif&f=1&nofb=1)
+![Route66](https://d3hne3c382ip58.cloudfront.net/files/uploads/bookmundi/resized/cmsfeatured/us-route-66-1534758213-785X440.jpg)
 
 ## Overview
 In this lesson, we'll learn about *routing* in Express and how to build API endpoints.  We'll also take a look at queries and parameters and discuss HTTP methods and their use.
